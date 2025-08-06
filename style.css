@@ -1,0 +1,144 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-main: 'Poppins', sans-serif;
+  --color-primary: #ff4d4d;
+  --color-secondary: #ffffff;
+  --color-bg-light: #f4f4f4;
+  --color-bg-dark: #1e1e1e;
+  --color-text-light: #333333;
+  --color-text-dark: #f9f9f9;
+  --transition-speed: 0.3s;
+}
+
+/* Modo claro/oscuro automático */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-light: #1e1e1e;
+    --color-secondary: #2b2b2b;
+    --color-text-light: #f9f9f9;
+  }
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.welcome-container {
+  animation: fadeIn 1.5s ease-in-out;
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 16px;
+  background-color: var(--color-secondary);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  transition: background-color var(--transition-speed);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #ff4d4d, #ff944d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideDown 1s ease-out;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 2s ease-in;
+  color: #666;
+}
+
+.start-btn {
+  background-color: var(--color-primary);
+  border: none;
+  padding: 0.8rem 2rem;
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.start-btn:hover {
+  background-color: #e63e3e;
+  transform: scale(1.05);
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  animation: popIn 1s ease-in-out;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsivo */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .start-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
