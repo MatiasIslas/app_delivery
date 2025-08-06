@@ -142,3 +142,10 @@ p {
     padding: 0.6rem 1.5rem;
   }
 }
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease;
+}
+
