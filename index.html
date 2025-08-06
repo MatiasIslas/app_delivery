@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bienvenido a FastDelivery</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cliente - App de Delivery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="cliente.css">
 </head>
+
 <body>
-  <div class="welcome-container">
-    <div class="logo">
-      <img src="logo.png" alt="FastDelivery Logo" />
+  <header>
+    <h1>¡Bienvenido a FoodExpress!</h1>
+    <div class="theme-toggle">
+      <label for="theme-switch">🌙</label>
+      <input type="checkbox" id="theme-switch">
     </div>
-    <h1 class="welcome-title">¡Bienvenido a <span class="highlight">FastDelivery</span>!</h1>
-    <p class="typed-text"></p>
-    <button class="start-button" onclick="goToApp()">Comenzar</button>
-  </div>
-  <script src="main.js"></script>
+  </header>
+
+  <section class="busqueda">
+    <input type="text" id="searchInput" placeholder="Buscar menús, restaurantes o bebidas...">
+    <button onclick="buscar()"><i class="fas fa-search"></i></button>
+  </section>
+
+  <section class="filtros">
+    <select id="filtroCategoria" onchange="filtrar()">
+      <option value="">Todas las categorías</option>
+      <option value="pizza">Pizza</option>
+      <option value="burgers">Burgers</option>
+      <option value="bebidas">Bebidas</option>
+      <option value="postres">Postres</option>
+    </select>
+
+    <select id="filtroOrden" onchange="filtrar()">
+      <option value="">Ordenar por</option>
+      <option value="popularidad">Popularidad</option>
+      <option value="precio-asc">Precio (menor a mayor)</option>
+      <option value="precio-desc">Precio (mayor a menor)</option>
+    </select>
+  </section>
+
+  <section class="promociones" id="promociones">
+    <h2>Promociones destacadas</h2>
+    <div class="promo-contenedor">
+      <!-- Tarjetas de promociones -->
+    </div>
+  </section>
+
+  <section class="menus" id="menus">
+    <h2>Menús disponibles</h2>
+    <div class="menu-contenedor">
+      <!-- Tarjetas de menús -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FoodExpress - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="cliente.js"></script>
 </body>
+
 </html>
