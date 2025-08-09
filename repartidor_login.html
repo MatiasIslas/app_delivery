@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Portal Repartidor - DelyGo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Reutilizamos los estilos comunes para mantener la consistencia -->
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1 class="auth-title">Portal Repartidor</h1>
+            <p class="auth-subtitle">Accede para ver y gestionar tus entregas.</p>
+
+<form id="repartidorLoginForm">
+            <div class="form-group">
+                <label for="email">Tu Correo Electrónico</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="curv">Código Único Repartidor Verificado (C.U.R.V)</label>
+                <input type="text" id="curv" placeholder="Ingresa tu código de acceso" required>
+            </div>
+            
+            <button type="submit" class="btn-primary">Iniciar Sesión</button>
+        </form>
+
+        <a href="main.html" style="display: block; margin-top: 1.5rem; color: var(--primary-color); text-decoration: none; font-weight: 500;">Volver a la app principal</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById('repartidorLoginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const curv = document.getElementById('curv').value;
+        
+        // Verificamos el código de ejemplo
+        if (curv === "REPARTIDOR456") {
+            alert('Acceso concedido. ¡Buena jornada!');
+            // Redirigimos al panel del repartidor
+            window.location.href = 'repartidor/repartidor.html';
+        } else {
+            alert('El código C.U.R.V es incorrecto. Acceso denegado.');
+        }
+    });
+</script>
+</body>
+</html>
