@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Portal del Local - DelyGo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Reutilizamos los estilos de 'common.css' para mantener la consistencia visual -->
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1 class="auth-title">Portal del Local</h1>
+            <p class="auth-subtitle">Gestiona tus pedidos y productos.</p>
+
+<form id="localLoginForm">
+            <div class="form-group">
+                <label for="email">Correo del Local</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="culv">Código Único Local Verificado (C.U.L.V)</label>
+                <input type="text" id="culv" placeholder="Ingresa tu código secreto" required>
+            </div>
+            
+            <button type="submit" class="btn-primary">Acceder al Portal</button>
+        </form>
+
+        <a href="main.html" style="display: block; margin-top: 1.5rem; color: var(--primary-color); text-decoration: none; font-weight: 500;">Volver a la app principal</a>
+    </div>
+</div>
+
+<script>
+    // La lógica de verificación está incrustada aquí por simplicidad.
+    document.getElementById('localLoginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitamos que la página se recargue
+
+        // Obtenemos el valor del código ingresado
+        const culv = document.getElementById('culv').value;
+        
+        // Verificamos si el código es el correcto.
+        // En una app real, esta verificación se haría en un servidor.
+        if (culv === "LOCAL123") {
+            alert('Acceso concedido. ¡Bienvenido!');
+            // Si es correcto, redirigimos al panel del local.
+            window.location.href = 'local/local.html';
+        } else {
+            // Si es incorrecto, mostramos un error.
+            alert('El código C.U.L.V es incorrecto. Acceso denegado.');
+        }
+    });
+</script>
+</body>
+</html>
