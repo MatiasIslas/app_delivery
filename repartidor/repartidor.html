@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelyGo - Portal del Repartidor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Enlace al CSS en la misma carpeta -->
+    <link rel="stylesheet" href="repartidor.css">
+</head>
+<body data-theme="light">
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h2 class="sidebar-title">DelyGo</h2>
+        <p style="color: var(--gray-600);">Portal Repartidor</p>
+    </div>
+    <ul class="sidebar-menu">
+        <!-- **CORRECCIÓN IMPORTANTE**: El enlace usa '../' para subir un nivel y encontrar main.html -->
+        <li><a href="../main.html"><i class="fas fa-arrow-left"></i> Volver a la App</a></li>
+        <li><a href="#" id="accountLink"><i class="fas fa-user"></i> Mi Cuenta</a></li>
+        <li>
+            <div class="theme-toggle" id="themeToggle">
+                <span><i class="fas fa-moon"></i> Modo Oscuro</span>
+                <div class="toggle-switch" id="toggleSwitch"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Header del Repartidor -->
+<header class="repartidor-header">
+    <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Buscar por N° de pedido...">
+    </div>
+    <!-- Este es el menú de ajustes del repartidor -->
+    <div class="options-menu-container">
+        <button class="options-btn" id="optionsBtn"><i class="fas fa-ellipsis-v"></i></button>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#" id="availabilityBtn"><i class="fas fa-toggle-on"></i> <span id="availabilityText">Desactivar</span></a>
+            <a href="#" id="historyBtn"><i class="fas fa-history"></i> Historial de Entregas</a>
+        </div>
+    </div>
+</header>
+
+<!-- Contenedor Principal de Entrega -->
+<main class="delivery-view">
+    <section class="delivery-details" id="deliveryDetails">
+        <div class="waiting-message">
+            <i class="fas fa-box-open"></i>
+            <h2>Esperando pedidos...</h2>
+            <p>Tu estado es: <strong class="status-active">Activo</strong></p>
+        </div>
+    </section>
+    <section class="delivery-actions" id="deliveryActions"></section>
+</main>
+
+<script type="module" src="js/firebase-init.js"></script> 
+<!-- Luego cargamos el script de la página, que usará la configuración -->
+<script type="module" src="js/repartidor.js"></script>
+
+</body>
+</html>
