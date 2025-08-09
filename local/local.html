@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieApp - Portal del Local</title>
+<!-- Enlaces a librerías externas y fuentes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Enlace al archivo CSS local. Se asume que está en la misma carpeta. -->
+<link rel="stylesheet" href="local.css">
+</head>
+<body data-theme="light">
+
+<!-- Sidebar de Navegación -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h2 class="sidebar-title">DelyGo</h2>
+        <p style="color: var(--gray-600);">Portal del Local</p>
+    </div>
+    <ul class="sidebar-menu">
+        <!-- **CORRECCIÓN APLICADA**: El enlace usa '../' para "subir" un nivel en la estructura de carpetas y encontrar main.html correctamente. -->
+        <li><a href="../main.html"><i class="fas fa-arrow-left"></i> Volver a la App</a></li>
+        <li><a href="#" id="accountLink"><i class="fas fa-user"></i> Mi Cuenta</a></li>
+        <li>
+            <div class="theme-toggle" id="themeToggle">
+                <span><i class="fas fa-moon"></i> Modo Oscuro</span>
+                <div class="toggle-switch" id="toggleSwitch"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- Overlay que se muestra cuando la sidebar está activa -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Header principal del portal del local -->
+<header class="local-header">
+    <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Buscar por N° de pedido o cliente...">
+    </div>
+    
+    <div class="plus-menu-container">
+        <button class="plus-btn" id="plusBtn"><i class="fas fa-plus"></i></button>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#" id="addProductBtn"><i class="fas fa-plus-circle"></i> Agregar Producto</a>
+            <a href="#" id="listProductsBtn"><i class="fas fa-list-ul"></i> Listado Productos</a>
+            <a href="#" id="settingsBtn"><i class="fas fa-cog"></i> Ajustes del Local</a>
+        </div>
+    </div>
+</header>
+
+<!-- Contenido principal: Tablero de Pedidos -->
+<main class="order-board">
+    <section class="order-column">
+        <h2 class="column-title"><i class="fas fa-bell"></i> Nuevos Pedidos</h2>
+        <div class="column-content" id="newOrdersColumn"></div>
+    </section>
+    <section class="order-column">
+        <h2 class="column-title"><i class="fas fa-hourglass-half"></i> Pedidos Pendientes</h2>
+        <div class="column-content" id="pendingOrdersColumn"></div>
+    </section>
+    <section class="order-column">
+        <h2 class="column-title"><i class="fas fa-check-circle"></i> Pedidos Realizados</h2>
+        <div class="column-content" id="completedOrdersColumn"></div>
+    </section>
+</main>
+
+<!-- Modales para funcionalidades extra (Agregar Producto, Listar, Ajustes) -->
+
+<!-- Modal para Agregar/Editar Producto -->
+<div class="modal-overlay hidden" id="productModal">
+    <div class="modal-content">
+        <h2 id="modalTitle">Agregar Nuevo Producto</h2>
+        <form id="productForm">
+            <div class="form-group"><label for="productName">Nombre del Producto</label><input type="text" id="productName" required></div>
+            <div class="form-group"><label for="productImage">Imagen del Producto</label><input type="file" id="productImage" accept="image/*"></div>
+            <div class="form-group"><label for="productDescription">Descripción</label><textarea id="productDescription" rows="3" required></textarea></div>
+            <div class="form-group-inline">
+                <div class="form-group"><label for="productPrice">Precio (€)</label><input type="number" id="productPrice" step="0.01" required></div>
+                <div class="form-group"><label for="productCategory">Categoría</label><select id="productCategory" required><option value="comida">Comida</option><option value="bebida">Bebida</option><option value="postre">Postre</option><option value="medicamento">Medicamento</option><option value="higiene">Higiene</option></select></div>
+            </div>
+            <div class="form-actions"><button type="button" class="btn-secondary" id="closeProductModalBtn">Cancelar</button><button type="submit" class="btn-primary">Publicar Producto</button></div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal para Listar Productos -->
+<div class="modal-overlay hidden" id="productListModal">
+    <div class="modal-content wide">
+        <h2>Listado de Productos</h2>
+        <div class="product-list-container" id="productListContainer"></div>
+        <div class="form-actions"><button type="button" class="btn-secondary" id="closeProductListModalBtn">Cerrar</button></div>
+    </div>
+</div>
+
+<!-- Modal para Ajustes del Local -->
+<div class="modal-overlay hidden" id="settingsModal">
+     <div class="modal-content">
+        <h2>Ajustes del Local</h2>
+        <form id="settingsForm">
+            <div class="form-group"><label for="localName">Nombre del Local</label><input type="text" id="localName" value="Mi Kiosco Genial" required></div>
+            <div class="form-group"><label for="localImage">Imagen del Local</label><input type="file" id="localImage" accept="image/*"></div>
+            <div class="form-group"><label for="localDescription">Descripción</label><textarea id="localDescription" rows="3">Tu lugar de confianza para snacks y bebidas.</textarea></div>
+            <div class="form-group"><label for="localAddress">Dirección</label><input type="text" id="localAddress" value="Calle Falsa 123, Ciudad" required></div>
+            <div class="form-group"><label for="localPhone">Número de Celular (Opcional)</label><input type="tel" id="localPhone" value="+34 600 123 456"></div>
+            <div class="form-group"><label for="localHours">Horarios de Atención</label><input type="text" id="localHours" value="L-V: 9:00 - 21:00 | S: 10:00 - 18:00"></div>
+            <div class="form-actions"><button type="button" class="btn-secondary" id="closeSettingsModalBtn">Cancelar</button><button type="submit" class="btn-primary">Guardar Cambios</button></div>
+        </form>
+    </div>
+</div>
+
+<script type="module" src="js/firebase-init.js"></script> 
+<!-- Luego cargamos el script de la página, que usará la configuración -->
+<script type="module" src="js/local.js"></script>
+
+</body>
+</html>
