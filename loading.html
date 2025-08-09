@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando DelyGo...</title>
+    
+    <!-- Importamos la fuente 'Poppins' desde Google Fonts para el nombre de la app -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reseteo básico para eliminar márgenes por defecto */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos del cuerpo de la página */
+        body {
+            font-family: 'Poppins', sans-serif; /* Aplicamos la fuente Poppins */
+            display: flex; /* Usamos flexbox para centrar el contenido */
+            justify-content: center; /* Centrado horizontal */
+            align-items: center; /* Centrado vertical */
+            height: 100vh; /* Ocupa toda la altura de la ventana */
+            background: #ff6b35; /* Color primario de la marca como fondo */
+            overflow: hidden; /* Evita que aparezcan barras de scroll */
+        }
+
+        /* Estilos del contenedor del loader */
+        .loader {
+            color: white; /* Texto en color blanco */
+            font-size: 3rem; /* Tamaño de la fuente grande */
+            font-weight: 700; /* Grosor de la fuente */
+            /* Aplicamos la animación 'fadeInOut' que durará 3 segundos y se quedará en su estado final */
+            animation: fadeInOut 3s forwards; 
+        }
+
+        /* Definición de la animación */
+        @keyframes fadeInOut {
+            /* Al inicio (0%), el texto está invisible y un poco más pequeño */
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            /* A la mitad de la animación (1.5s), el texto es completamente visible y en su tamaño normal */
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            /* Al final (3s), el texto vuelve a desaparecer para una transición suave a la siguiente pantalla */
+            100% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Este es el único elemento visible en la página -->
+    <div class="loader">DelyGo</div>
+
+    <script>
+        // Este script gestiona la redirección automática.
+        
+        // La función setTimeout espera una cantidad de milisegundos antes de ejecutar el código que contiene.
+        setTimeout(() => {
+            // Cuando pasen los 3000 milisegundos (3 segundos), se cambiará la ubicación de la ventana
+            // a 'login.html', que será la siguiente pantalla.
+            window.location.href = 'login.html';
+        }, 3000); 
+    </script>
+
+</body>
+</html>
