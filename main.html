@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelyGo - Tu comida favorita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- RUTA ACTUALIZADA: Apunta a la carpeta css y al nuevo nombre del archivo -->
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <button class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Buscar restaurantes o platos..." id="searchInput">
+            </div>
+            <button class="cart-btn" id="cartBtn">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Carrito</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h2 class="sidebar-title">DelyGo</h2>
+        <p style="color: var(--gray-600);">Tu comida favorita</p>
+    </div>
+    <ul class="sidebar-menu">
+        <li><a href="#" id="favoritesLink"><i class="fas fa-heart"></i> Favoritos</a></li>
+        <li><a href="#" id="accountLink"><i class="fas fa-user"></i> Mi Cuenta</a></li>
+        <li>
+            <div class="theme-toggle" id="themeToggle">
+                <span><i class="fas fa-moon"></i> Modo Oscuro</span>
+                <div class="toggle-switch" id="toggleSwitch"></div>
+            </div>
+        </li>
+        <li><a href="#" id="localLink"><i class="fas fa-store"></i> Local</a></li>
+        <li><a href="#" id="deliveryLink"><i class="fas fa-motorcycle"></i> Repartidor</a></li>
+    </ul>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Filters Navigation -->
+<nav class="filters-nav">
+    <div class="filters-container">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="pizza">Pizza</button>
+        <button class="filter-btn" data-filter="burger">Hamburguesas</button>
+        <button class="filter-btn" data-filter="sushi">Sushi</button>
+        <button class="filter-btn" data-filter="mexican">Mexicana</button>
+        <button class="filter-btn" data-filter="chinese">China</button>
+        <button class="filter-btn" data-filter="healthy">Saludable</button>
+        <button class="filter-btn" data-filter="dessert">Postres</button>
+    </div>
+</nav>
+
+<!-- Restaurants Section -->
+<main class="restaurants-section">
+    <h1 class="section-title">Restaurantes cerca de ti</h1>
+    <div class="restaurants-grid" id="restaurantsGrid">
+        <!-- Las tarjetas de restaurante se generan con JavaScript -->
+    </div>
+</main>
+
+<!-- Pantalla de Detalles del Producto -->
+<div class="detail-screen" id="productDetailScreen">
+    <!-- El contenido se genera con JavaScript -->
+</div>
+
+<!-- Pantalla del Carrito -->
+<div class="cart-screen" id="cartScreen">
+    <div class="cart-header">
+        <button class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <h2 class="cart-title">Mi Pedido</h2>
+    </div>
+    <div class="cart-content" id="cartContent">
+        <!-- Los artículos del carrito se generan con JavaScript -->
+    </div>
+    <div class="cart-footer-summary" id="cartFooter">
+        <!-- El resumen del carrito se genera con JavaScript -->
+    </div>
+</div>
+
+<script type="module" src="js/firebase-init.js"></script> 
+<!-- Luego cargamos el script de la página, que usará la configuración -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
