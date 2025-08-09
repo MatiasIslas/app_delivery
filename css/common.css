@@ -1,0 +1,113 @@
+/* Definimos variables de color y estilo para usar en todo el sitio */
+:root {
+    --primary-color: #ff6b35;
+    --light-color: #ffffff;
+    --dark-color: #1a1a1a;
+    --gray-100: #f8f9fa;
+    --gray-300: #dee2e6;
+    --gray-600: #6c757d;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 12px;
+}
+
+/* Estilos base para el cuerpo de la página */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--gray-100);
+    color: var(--dark-color);
+    margin: 0;
+}
+
+/* Contenedor para centrar el contenido de autenticación */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que ocupe toda la altura */
+    padding: 1rem;
+}
+
+/* La caja blanca del formulario */
+.auth-box {
+    background-color: var(--light-color);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Título principal (ej. "FoodieApp") */
+.auth-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+/* Subtítulo debajo del título principal */
+.auth-subtitle {
+    color: var(--gray-600);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+}
+
+/* Estilo para los grupos de formulario (label + input) */
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+/* Estilo para el botón principal de acción */
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 107, 53, 0.3);
+}/* -- INICIO DE CÓDIGO DE REFINAMIENTO -- */
+
+/* Transición suave para los campos de texto */
+.form-group input {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de foco mejorado */
+.form-group input:focus {
+    outline: none; /* Quitamos el borde por defecto del navegador */
+    border-color: var(--primary-color); /* Cambiamos el color del borde al primario */
+    /* Añadimos un "resplandor" sutil para un feedback más claro */
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.15);
+}
+
+/* -- FIN DE CÓDIGO DE REFINAMIENTO -- */
+
+
